@@ -1,0 +1,80 @@
+:root {
+  --color-primary: #D4AF37; /* Gold */
+  --color-primary-dark: #C5A028;
+  --color-secondary: #808080; /* Gray */
+  --color-bg: #FFFFFF;
+  --color-surface: #F5F5F5;
+  --color-text: #1A1A1A; /* Blackish */
+  --color-text-muted: #666666;
+  --color-border: #E5E5E5;
+  --color-error: #E53935;
+  --color-warning: #FFB300;
+  --color-info: #1E88E5;
+  --color-success: #43A047;
+  
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-full: 9999px;
+
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+}
+
+[data-theme="dark"] {
+  --color-bg: #121212;
+  --color-surface: #1E1E1E;
+  --color-text: #F5F5F5;
+  --color-text-muted: #A0A0A0;
+  --color-border: #333333;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Utilities */
+.app-container {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  min-height: 100vh;
+  position: relative;
+  background-color: var(--color-bg);
+  box-shadow: var(--shadow-lg);
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content {
+  flex: 1;
+  padding-bottom: 70px; /* Space for bottom nav */
+  overflow-y: auto;
+}
+
+/* Base styles for PWA feel */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  color: inherit;
+}
