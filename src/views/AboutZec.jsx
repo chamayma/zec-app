@@ -12,7 +12,7 @@ export default function AboutZec() {
 
   return (
     <div style={styles.container}>
-      {/* Hero Section */}
+      {/* Hero Section. */}
       <div style={styles.heroBanner}>
         <div style={styles.heroOverlay} />
         <button 
