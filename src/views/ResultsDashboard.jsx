@@ -29,7 +29,7 @@ export default function ResultsDashboard() {
       party: 'ACT Wazalendo',
       votes: '98,842',
       percentage: 19.8,
-      color: 'var(--color-secondary)',
+      color: 'var(--color-primary)',
       img: othmanImg
     },
     {
@@ -37,7 +37,7 @@ export default function ResultsDashboard() {
       party: 'Alliance for Democratic Change (ADC)',
       votes: '15,472',
       percentage: 3.1,
-      color: 'var(--color-secondary)',
+      color: 'var(--color-primary)',
       img: hamadImg
     }
   ];
