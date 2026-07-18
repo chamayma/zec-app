@@ -64,7 +64,7 @@ export default function MoreMenu() {
               <UserCircle size={56} color="var(--color-primary)" />
             </div>
             <div style={styles.profileText}>
-              <h2 style={styles.profileName}>Mbarouk Othman Mbarouk</h2>
+              <h2 style={styles.profileName}>Hassan Haji Machochoki</h2>
               <p style={styles.profileNumber}>VOTER ID: 847291034</p>
               <button style={styles.viewProfileBtn}>
                 {t('viewProfile')}
@@ -104,10 +104,7 @@ export default function MoreMenu() {
           </div>
         ))}
 
-        <button style={styles.logoutBtn}>
-          <LogOut size={18} />
-          <span>{t('logout')}</span>
-        </button>
+
       </div>
     </div>
   );
