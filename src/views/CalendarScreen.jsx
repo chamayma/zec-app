@@ -1,10 +1,12 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
-import { ArrowLeft, CalendarDays, CheckCircle2, Clock, MapPin } from 'lucide-react';
+import { useTheme } from '../context/ThemeContext';
+import { ArrowLeft, CalendarDays, CheckCircle2, Clock, MapPin, Calendar } from 'lucide-react';
 
 export default function CalendarScreen() {
   const { t } = useLanguage();
+  const { isDark } = useTheme();
   const navigate = useNavigate();
 
   const events = [
@@ -73,7 +75,7 @@ export default function CalendarScreen() {
             <Calendar size={24} color="var(--color-primary)" />
           </div>
         </div>
-        <h2 style={styles.pageTitle}>{t('electionCalendar')}</h2>
+        <h2 style={{...styles.pageTitle, color: isDark ? 'var(--color-primary)' : 'var(--color-text)'}}>{t('electionCalendar') || 'Ratiba ya Uchaguzi'}</h2>
         <p style={styles.pageSubtitle}>{t('calendarSubtitle')}</p>
       </div>
 
@@ -110,7 +112,7 @@ export default function CalendarScreen() {
                   <Clock size={14} style={{marginRight: '6px'}} />
                   <span>{ev.date}</span>
                 </div>
-                <h3 style={styles.eventTitle}>{ev.title}</h3>
+                <h3 style={{...styles.eventTitle, color: isDark ? 'var(--color-primary)' : 'var(--color-text)'}}>{ev.title}</h3>
                 <p style={styles.eventDesc}>{ev.desc}</p>
                 {isActive && (
                   <div style={styles.activeBadge}>

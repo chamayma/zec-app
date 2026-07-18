@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { PlayCircle, HelpCircle, FileText, ChevronDown, ChevronUp, Download, ArrowRight, ArrowLeft } from 'lucide-react';
+import { useTheme } from '../context/ThemeContext';
 
 import vidImg1 from '../assets/images/img8.jpeg';
 import vidImg2 from '../assets/images/img9.jpeg';
@@ -15,6 +16,7 @@ import katImg5 from '../assets/images/img17.jpeg';
 
 export default function VoterEducation() {
   const navigate = useNavigate();
+  const { isDark } = useTheme();
   const [activeTab, setActiveTab] = useState('videos');
   const [openFaq, setOpenFaq] = useState(null);
 
@@ -118,12 +120,12 @@ export default function VoterEducation() {
                   <div key={item.id} style={styles.katuniCard}>
                     <div style={{...styles.katuniThumb, backgroundImage: `url(${item.img})`}} />
                     <div style={styles.katuniBody}>
-                      <h4 style={styles.katuniTitle}>{item.title}</h4>
+                      <h4 style={{...styles.katuniTitle, color: isDark ? 'var(--color-primary)' : '#000'}}>{item.title}</h4>
                       <p style={styles.katuniDesc}>{item.desc}</p>
                     </div>
                     <div style={styles.katuniRight}>
                       <span style={{...styles.katuniBadge, color: item.badgeColor}}>{item.badge}</span>
-                      <ArrowRight size={20} color="#000" />
+                      <ArrowRight size={20} color={isDark ? 'var(--color-primary)' : '#000'} />
                     </div>
                   </div>
                 ))}
@@ -143,7 +145,7 @@ export default function VoterEducation() {
                 >
                   <span style={{...styles.faqQ, color: openFaq === faq.id ? 'var(--color-primary)' : 'var(--color-text)'}}>{faq.q}</span>
                   <div style={{...styles.faqIconBox, backgroundColor: openFaq === faq.id ? 'var(--color-primary)' : 'var(--color-border)'}}>
-                    {openFaq === faq.id ? <ChevronUp size={16} color={openFaq === faq.id ? '#fff' : '#000'} /> : <ChevronDown size={16} color="#000" />}
+                    {openFaq === faq.id ? <ChevronUp size={16} color={openFaq === faq.id ? '#fff' : (isDark ? 'var(--color-primary)' : '#000')} /> : <ChevronDown size={16} color={isDark ? 'var(--color-primary)' : '#000'} />}
                   </div>
                 </button>
                 {openFaq === faq.id && (

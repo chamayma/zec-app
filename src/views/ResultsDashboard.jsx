@@ -1,9 +1,16 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ArrowLeft, Verified, CheckCircle, Search, Map, ChevronRight, ArrowUpRight } from 'lucide-react';
+import { useTheme } from '../context/ThemeContext';
+import { useLanguage } from '../context/LanguageContext';
+
+import raisiImg from '../assets/images/raisi.jpeg';
+import othmanImg from '../assets/images/othman.jpeg';
 
 export default function ResultsDashboard() {
   const navigate = useNavigate();
+  const { isDark } = useTheme();
+  const { t } = useLanguage();
   const [filter, setFilter] = useState('Presidential');
 
   const filters = ['Presidential', 'Parliamentary', 'Local Council'];
@@ -15,15 +22,15 @@ export default function ResultsDashboard() {
       votes: '380,451',
       percentage: 76.2,
       color: 'var(--color-primary)',
-      img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBygTjrMkJopulkZd-pKy7d4LpfMUrMpWqDYUHwz6P3yYxFoIbCO931dNYNryoNj_JQ_sAb-87XRfBDERvm7oRHtaRDfyk2h9lS3iC4YUmS7pJMvTgZEhgbn_VpTIiqQugkDZKNydvsL9oBixzrycs9LAGc-SDfrcjQ3V7kOq-JZfzCnDewDJ9-Ht9482R-gFzgz5LMHWAtFVYG0MJmLI_DURde2_fthTGBb5kQFdBUGmlAbPFv-74bTrJ9fHfl2MYOGFPb9kqLIwdV'
+      img: raisiImg
     },
     {
-      name: 'Seif Sharif Hamad',
+      name: 'Othman Massoud Othman',
       party: 'ACT Wazalendo',
       votes: '98,842',
       percentage: 19.8,
       color: 'var(--color-secondary)',
-      img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDii3egDl_6evvaOgzZbNEp-nQ8EWTFBSsyVSS_e7Dr0VFHG6wKXku_qZFoV52O2WQSO6HhijdeippLKOR242dBRMNLqjOzA17RC1Xx9XE1pVyuU5HE19UPH-2xGFuNjq3oE5QHWbKQINnix0uqMBpLybm--KvJDECg8DvtZHCW1eVoK_ezBzMEYRwFhuKRf25niXOzu9Opht5EbT3K2bYarxMhr_YtiUa0ZGPRAhAefDNtJkKXhVC_qnoM5fuQu5K8zfecl-CITS5K'
+      img: othmanImg
     },
     {
       name: 'Hamad Rashid Mohamed',
@@ -53,7 +60,7 @@ export default function ResultsDashboard() {
             </div>
             <span style={styles.lastUpdate}>Last updated: 14:32 PM, Oct 28 2026</span>
           </div>
-          <h2 style={styles.pageTitle}>General Election Results</h2>
+          <h2 style={{...styles.pageTitle, color: isDark ? 'var(--color-primary)' : 'var(--color-text)'}}>General Election Results</h2>
         </div>
         
         <div style={styles.filterRow}>
@@ -116,7 +123,7 @@ export default function ResultsDashboard() {
         {/* Candidate Breakdown (Left) */}
         <div style={styles.mainColumn}>
           <div style={styles.sectionHeader}>
-            <h3 style={styles.sectionTitle}>Candidate Breakdown</h3>
+            <h3 style={{...styles.sectionTitle, color: isDark ? 'var(--color-primary)' : 'var(--color-text)'}}>Candidate Breakdown</h3>
             <div style={styles.searchBox}>
               <Search size={16} style={styles.searchIcon} color="var(--color-text-muted)" />
               <input type="text" placeholder="Find candidate..." style={styles.searchInput} />
@@ -132,7 +139,7 @@ export default function ResultsDashboard() {
                 <div style={styles.candDetails}>
                   <div style={styles.candTopRow}>
                     <div>
-                      <h4 style={styles.candName}>{cand.name}</h4>
+                      <h4 style={{...styles.candName, color: isDark ? 'var(--color-primary)' : 'var(--color-text)'}}>{cand.name}</h4>
                       <p style={styles.candParty}>{cand.party}</p>
                     </div>
                     <div style={styles.candStatsRight}>
@@ -156,8 +163,8 @@ export default function ResultsDashboard() {
 
         {/* Regional Results (Right) */}
         <div style={styles.sideColumn}>
-          <h3 style={styles.sectionTitle}>Regional Results</h3>
-          <h3 style={styles.sectionTitle}>{t('regionalResults')}</h3>
+          <h3 style={{...styles.sectionTitle, color: isDark ? 'var(--color-primary)' : 'var(--color-text)'}}>Regional Results</h3>
+          <h3 style={{...styles.sectionTitle, color: isDark ? 'var(--color-primary)' : 'var(--color-text)'}}>{t('regionalResults') || 'Regional Results'}</h3>
           
           <div style={styles.regionalCard}>
             <div style={styles.mapPlaceholder}>

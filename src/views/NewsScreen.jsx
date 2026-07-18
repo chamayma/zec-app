@@ -2,6 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ArrowLeft, Newspaper, Calendar, ChevronRight, Share2, Eye } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
+import { useTheme } from '../context/ThemeContext';
 
 // Import images for news
 import newsImg1 from '../assets/images/img3.jpeg';
@@ -12,6 +13,7 @@ import newsImg4 from '../assets/images/img1.jpeg';
 export default function NewsScreen() {
   const { t } = useLanguage();
   const navigate = useNavigate();
+  const { isDark } = useTheme();
 
   const newsItems = [
     {
@@ -90,7 +92,7 @@ export default function NewsScreen() {
               {featuredNews.reads} {t('views')}
             </span>
           </div>
-          <h3 style={styles.featuredTitle}>{featuredNews.title}</h3>
+          <h3 style={{...styles.featuredTitle, color: isDark ? 'var(--color-primary)' : 'var(--color-text)'}}>{featuredNews.title}</h3>
           <p style={styles.featuredExcerpt}>{featuredNews.excerpt}</p>
           <button style={styles.readMoreBtn}>
             {t('readMore')} <ChevronRight size={16} />
@@ -107,7 +109,7 @@ export default function NewsScreen() {
               <span style={styles.smallBadge}>{news.category}</span>
             </div>
             <div style={styles.newsContent}>
-              <h4 style={styles.newsTitle}>{news.title}</h4>
+              <h4 style={{...styles.newsTitle, color: isDark ? 'var(--color-primary)' : 'var(--color-text)'}}>{news.title}</h4>
               <div style={styles.metaRowSmall}>
                 <span style={styles.dateLabel}>
                   <Calendar size={12} style={{marginRight: '4px'}} />
