@@ -19,11 +19,11 @@ import {
 } from 'lucide-react';
 
 export default function MoreMenu() {
-  const { t, language, setLanguage } = useLanguage();
+  const { t, toggleLang } = useLanguage();
   const navigate = useNavigate();
 
   const handleLanguageToggle = () => {
-    setLanguage(language === 'sw' ? 'en' : 'sw');
+    toggleLang();
   };
 
   const menuSections = [
