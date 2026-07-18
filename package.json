@@ -3,14 +3,15 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://github.com/chamayma/zec-app.git",
+  "homepage": "https://chamayma.github.io/zec-app/",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "lint": "eslint .",
-    "deploy": "gh-pages -d dist",
-    "preview": "vite preview"
-  },
+  "dev": "vite",
+  "build": "vite build",
+  "predeploy": "npm run build",
+  "deploy": "gh-pages -d dist",
+  "preview": "vite preview",
+  "lint": "eslint ."
+},
   "dependencies": {
     "lucide-react": "^1.25.0",
     "react": "^19.2.7",
