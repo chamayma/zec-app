@@ -23,7 +23,7 @@ function App() {
   return (
     <ThemeProvider>
       <LanguageProvider>
-        <BrowserRouter>
+        <BrowserRouter basename="/zec-app">
           <Routes>
             <Route path="/" element={<Layout />}>
               <Route index element={<HomeDashboard />} />
