@@ -52,6 +52,7 @@ body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   transition: background-color 0.4s ease, color 0.4s ease;
+  overflow-x: hidden;
 }
 
 /* Animations */
@@ -119,7 +120,6 @@ body {
   position: relative;
   background-color: var(--color-bg);
   box-shadow: var(--shadow-lg);
-  overflow-x: hidden;
   display: flex;
   flex-direction: column;
   transition: background-color 0.4s ease;

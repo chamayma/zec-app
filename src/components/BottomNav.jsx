@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink, useNavigate, useLocation } from 'react-router-dom';
-import { Home, BookOpen, MapPin, Menu, Bot, Phone } from 'lucide-react';
+import { Home, BookOpen, MapPin, Menu, MessageCircleMore, Phone } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 
 export default function BottomNav() {
@@ -56,7 +56,7 @@ export default function BottomNav() {
                 : '0 8px 24px rgba(229, 193, 88, 0.4)',
             }}
           >
-            <Bot size={30} />
+            <MessageCircleMore size={30} />
           </button>
           <span style={{
             ...styles.fabLabel,

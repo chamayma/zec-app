@@ -341,7 +341,6 @@ const styles = {
     boxShadow: '0 4px 12px rgba(0,0,0,0.05)',
     marginBottom: '12px',
     border: '1px solid rgba(0,0,0,0.03)',
-    borderTop: '4px solid var(--color-primary)',
   },
   detailRowGrid: {
     display: 'grid',
@@ -389,7 +388,6 @@ const styles = {
     padding: '12px',
     boxShadow: '0 4px 12px rgba(0,0,0,0.05)',
     border: '1px solid rgba(0,0,0,0.03)',
-    borderTop: '4px solid var(--color-primary)',
   },
   formHeader: {
     display: 'flex',

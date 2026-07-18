@@ -243,7 +243,6 @@ const styles = {
     borderRadius: '16px',
     overflow: 'hidden',
     border: '1px solid var(--color-border)',
-    borderTop: '4px solid var(--color-primary)',
     boxShadow: 'var(--shadow-sm)',
     display: 'flex',
     flexDirection: 'column'
@@ -358,7 +357,6 @@ const styles = {
     padding: '16px',
     borderRadius: '16px',
     border: '1px solid var(--color-border)',
-    borderTop: '4px solid var(--color-primary)',
     boxShadow: 'var(--shadow-sm)',
     cursor: 'pointer',
     transition: 'border-color 0.2s ease',

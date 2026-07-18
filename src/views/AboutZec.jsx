@@ -204,7 +204,6 @@ const styles = {
     padding: '20px',
     borderRadius: '16px',
     border: '1px solid var(--color-border)',
-    borderTop: '4px solid var(--color-primary)',
     boxShadow: 'var(--shadow-sm)',
     display: 'flex',
     flexDirection: 'column',

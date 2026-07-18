@@ -170,7 +170,6 @@ const styles = {
   card: {
     backgroundColor: 'var(--color-surface)',
     border: '1px solid var(--color-border)',
-    borderTop: '4px solid var(--color-primary)',
     borderRadius: '16px',
     padding: '20px',
     boxShadow: 'var(--shadow-sm)'

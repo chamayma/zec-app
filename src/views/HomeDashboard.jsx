@@ -152,7 +152,6 @@ const styles = {
     backgroundColor: 'var(--color-surface)',
     borderRadius: '18px',
     border: '1px solid var(--color-border)',
-    borderTop: '4px solid var(--color-primary)',
     padding: '16px 12px',
     textAlign: 'center',
     boxShadow: 'var(--shadow-sm)',
