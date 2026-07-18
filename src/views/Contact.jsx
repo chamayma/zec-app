@@ -73,20 +73,20 @@ export default function Contact() {
         
         {/* Quick Contact Cards */}
         <div style={styles.cardsGrid}>
-          <a href="tel:0880110221" style={{...styles.contactCard, backgroundColor: '#E8F5E9', border: '1px solid #C8E6C9'}}>
-            <div style={{...styles.iconWrapper, backgroundColor: '#4CAF50'}}>
-              <Phone size={18} color="#fff" />
+          <a href="tel:0880110221" style={styles.contactCard}>
+            <div style={{...styles.iconWrapper, backgroundColor: 'rgba(212, 175, 55, 0.1)'}}>
+              <Phone size={18} color="var(--color-primary)" />
             </div>
             <h3 style={styles.cardTitle}>Piga Simu (Bure)</h3>
-            <p style={{...styles.cardValue, color: '#2E7D32'}}>0880 11 0221</p>
+            <p style={{...styles.cardValue, color: 'var(--color-text)'}}>0880 11 0221</p>
           </a>
 
-          <a href="mailto:info@zec.go.tz" style={{...styles.contactCard, backgroundColor: '#E3F2FD', border: '1px solid #BBDEFB'}}>
-            <div style={{...styles.iconWrapper, backgroundColor: '#1976D2'}}>
-              <Mail size={18} color="#fff" />
+          <a href="mailto:info@zec.go.tz" style={styles.contactCard}>
+            <div style={{...styles.iconWrapper, backgroundColor: 'rgba(212, 175, 55, 0.1)'}}>
+              <Mail size={18} color="var(--color-primary)" />
             </div>
             <h3 style={styles.cardTitle}>Barua Pepe</h3>
-            <p style={{...styles.cardValue, color: '#1565C0'}}>info@zec.go.tz</p>
+            <p style={{...styles.cardValue, color: 'var(--color-text)'}}>info@zec.go.tz</p>
           </a>
         </div>
 
@@ -301,13 +301,16 @@ const styles = {
     marginBottom: '16px',
   },
   contactCard: {
+    backgroundColor: 'var(--color-surface)',
+    border: '1px solid var(--color-border)',
     padding: '12px',
     borderRadius: '12px',
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
     textDecoration: 'none',
-    boxShadow: '0 2px 4px rgba(0,0,0,0.05)',
+    boxShadow: '0 4px 12px rgba(0,0,0,0.05)',
+    borderTop: '4px solid var(--color-primary)',
   },
   iconWrapper: {
     width: '36px',
@@ -338,6 +341,7 @@ const styles = {
     boxShadow: '0 4px 12px rgba(0,0,0,0.05)',
     marginBottom: '12px',
     border: '1px solid rgba(0,0,0,0.03)',
+    borderTop: '4px solid var(--color-primary)',
   },
   detailRowGrid: {
     display: 'grid',
@@ -385,6 +389,7 @@ const styles = {
     padding: '12px',
     boxShadow: '0 4px 12px rgba(0,0,0,0.05)',
     border: '1px solid rgba(0,0,0,0.03)',
+    borderTop: '4px solid var(--color-primary)',
   },
   formHeader: {
     display: 'flex',

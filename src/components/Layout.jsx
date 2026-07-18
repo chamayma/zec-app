@@ -13,39 +13,45 @@ export default function Layout() {
 
   return (
     <div className="app-container">
-      <header style={styles.header}>
-        <div style={styles.logoArea}>
-          <img 
-            src={logo} 
-            alt="ZEC Logo" 
-            style={{ 
-              height: '56px', 
-              objectFit: 'contain',
-              filter: isDark ? 'brightness(0) invert(1)' : 'brightness(0)'
-            }} 
-          />
-        </div>
-        <div style={styles.actions}>
-          <button style={styles.iconBtn} onClick={toggleLang} title="Toggle Language">
-            <Languages size={20} />
-            <span style={{ fontSize: '12px', marginLeft: '4px', fontWeight: 'bold' }}>{lang.toUpperCase()}</span>
-          </button>
-          <button style={styles.iconBtn} onClick={toggleTheme} title="Toggle Theme">
-            {isDark ? <Sun size={20} /> : <Moon size={20} />}
-          </button>
-          <button style={styles.iconBtn} title="Notifications">
-            <Bell size={20} />
-          </button>
-        </div>
-      </header>
+      <div style={styles.headerWrapper}>
+        <header style={styles.header}>
+          <div style={styles.logoArea} onClick={() => navigate('/')}>
+            <img 
+              src={logo} 
+              alt="ZEC Logo" 
+              style={{ 
+                height: '38px', 
+                objectFit: 'contain',
+                filter: isDark ? 'brightness(0) invert(1)' : 'brightness(0)',
+                cursor: 'pointer'
+              }} 
+            />
+          </div>
+          <div style={styles.actions}>
+            <button style={styles.iconBtn} onClick={toggleLang} title="Toggle Language">
+              <div style={styles.langBadge}>
+                <Languages size={16} />
+                <span style={{ fontSize: '11px', marginLeft: '4px', fontWeight: '800' }}>{lang.toUpperCase()}</span>
+              </div>
+            </button>
+            <button style={styles.iconBtn} onClick={toggleTheme} title="Toggle Theme">
+              <div style={styles.actionCircle}>
+                {isDark ? <Sun size={18} color="var(--color-primary)" /> : <Moon size={18} />}
+              </div>
+            </button>
+            <button style={styles.iconBtn} title="Notifications">
+              <div style={styles.actionCircle}>
+                <Bell size={18} />
+                <span style={styles.notificationDot} />
+              </div>
+            </button>
+          </div>
+        </header>
+      </div>
 
-      <main className="main-content">
+      <main className="main-content" style={{ paddingTop: '20px' }}>
         <Outlet />
       </main>
-
-      <button style={styles.fab} onClick={() => navigate('/bot')} title="ZEC Bot">
-        <MessageCircleMore size={28} color="#000" />
-      </button>
 
       <BottomNav />
     </div>
@@ -53,18 +59,29 @@ export default function Layout() {
 }
 
 const styles = {
+  headerWrapper: {
+    position: 'sticky',
+    top: '16px',
+    zIndex: 1000,
+    display: 'flex',
+    justifyContent: 'center',
+    padding: '0 16px',
+    pointerEvents: 'none', // Allow clicks to pass through the margin area
+  },
   header: {
+    width: '100%',
+    height: '64px',
+    backgroundColor: 'var(--glass-bg)',
+    backdropFilter: 'blur(20px)',
+    WebkitBackdropFilter: 'blur(20px)',
+    border: '1px solid var(--glass-border)',
+    borderRadius: '32px',
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
-    padding: '16px 20px',
-    backgroundColor: 'var(--glass-bg)',
-    backdropFilter: 'blur(12px)',
-    WebkitBackdropFilter: 'blur(12px)',
-    borderBottom: '1px solid var(--glass-border)',
-    position: 'sticky',
-    top: 0,
-    zIndex: 1000,
+    padding: '0 12px 0 20px',
+    boxShadow: '0 8px 32px rgba(0,0,0,0.08)',
+    pointerEvents: 'auto',
   },
   logoArea: {
     display: 'flex',
@@ -72,7 +89,7 @@ const styles = {
   },
   actions: {
     display: 'flex',
-    gap: '16px',
+    gap: '8px',
     alignItems: 'center',
   },
   iconBtn: {
@@ -80,39 +97,37 @@ const styles = {
     alignItems: 'center',
     justifyContent: 'center',
     color: 'var(--color-text)',
-    padding: '4px',
-    borderRadius: '50%',
-    transition: 'background-color 0.2s',
+    transition: 'transform 0.2s',
   },
-  fab: {
-    position: 'fixed',
-    bottom: '90px',
-    right: '20px',
-    width: '56px',
-    height: '56px',
+  langBadge: {
+    display: 'flex',
+    alignItems: 'center',
+    backgroundColor: 'var(--color-surface)',
+    border: '1px solid var(--color-border)',
+    padding: '6px 10px',
+    borderRadius: '20px',
+    boxShadow: 'var(--shadow-sm)'
+  },
+  actionCircle: {
+    position: 'relative',
+    width: '40px',
+    height: '40px',
     borderRadius: '50%',
-    backgroundColor: 'var(--color-primary)',
+    backgroundColor: 'var(--color-surface)',
+    border: '1px solid var(--color-border)',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    boxShadow: 'var(--shadow-glow)',
-    zIndex: 999,
-    border: 'none',
-    cursor: 'pointer',
-    transition: 'transform 0.2s, box-shadow 0.2s',
-    animation: 'float 3s ease-in-out infinite',
+    boxShadow: 'var(--shadow-sm)'
   },
-  fabIconBg: {
-    width: '32px',
-    height: '32px',
+  notificationDot: {
+    position: 'absolute',
+    top: '10px',
+    right: '10px',
+    width: '8px',
+    height: '8px',
+    backgroundColor: 'var(--color-error)',
     borderRadius: '50%',
-    backgroundColor: 'rgba(255,255,255,0.3)',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  fabText: {
-    fontSize: '14px',
-    fontWeight: '600',
+    border: '2px solid var(--color-surface)',
   }
 };

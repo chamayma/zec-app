@@ -151,7 +151,11 @@ export default function SmartMap() {
                   </div>
                 </div>
 
-                <button style={{...styles.dirBtn, backgroundColor: isShowingRoute ? '#E53935' : '#1a73e8'}} onClick={handleDirections}>
+                <button style={{
+                  ...styles.dirBtn, 
+                  backgroundColor: isShowingRoute ? '#E53935' : 'var(--color-primary)',
+                  color: isShowingRoute ? '#fff' : '#111'
+                }} onClick={handleDirections}>
                   <Navigation size={18} style={{marginRight: 8}} />
                   {isShowingRoute ? t('closeRoute') : t('showRoute')}
                 </button>
@@ -352,17 +356,19 @@ const styles = {
   },
   dirBtn: {
     width: '100%',
-    backgroundColor: '#1a73e8', // Google Maps Blue
-    color: '#fff',
+    backgroundColor: 'var(--color-primary)',
+    color: '#111',
     padding: '16px',
     borderRadius: '16px',
     fontSize: '15px',
-    fontWeight: '600',
+    fontWeight: '800',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
     border: 'none',
-    boxShadow: '0 4px 12px rgba(26, 115, 232, 0.3)',
+    boxShadow: '0 4px 12px rgba(212, 175, 55, 0.4)',
+    cursor: 'pointer',
+    transition: 'all 0.3s ease',
   },
   resultsContainer: {
     animation: 'fadeIn 0.3s ease',

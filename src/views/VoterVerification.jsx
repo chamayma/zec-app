@@ -139,6 +139,7 @@ const styles = {
     borderRadius: 'var(--radius-md)',
     boxShadow: 'var(--shadow-sm)',
     border: '1px solid var(--color-border)',
+    borderTop: '4px solid var(--color-primary)',
     marginBottom: '24px'
   },
   instruction: {

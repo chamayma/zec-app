@@ -3,8 +3,8 @@ import { useLanguage } from '../context/LanguageContext';
 import { useNavigate } from 'react-router-dom';
 import { Building2, Eye, Target, Scale, ShieldCheck, UserCheck, CheckCircle2, Users, Landmark, ArrowLeft } from 'lucide-react';
 import heroImg from '../assets/images/img2.jpeg'; // Assuming img2 is a good building/hero image
-import leaderImg1 from '../assets/images/img6.jpeg'; // Placeholder for Chairman
-import leaderImg2 from '../assets/images/img7.jpeg'; // Placeholder for Vice Chairman
+import leaderImg1 from '../assets/images/jaji.jpeg'; // Chairman
+import leaderImg2 from '../assets/images/faina.jpeg'; // Director
 
 export default function AboutZec() {
   const { t } = useLanguage();
@@ -107,17 +107,17 @@ export default function AboutZec() {
               <div style={styles.leaderImgWrapper}>
                 <img src={leaderImg1} alt={t('chairman')} style={styles.leaderImg} />
               </div>
-              <h3 style={styles.leaderRole}>{t('chairman')}</h3>
-              <p style={styles.leaderDesc}>{t('zecHq')}</p>
+              <h3 style={{...styles.leaderRole, color: 'var(--color-text)'}}>Mhe. Jaji George Joseph Kazi</h3>
+              <p style={{...styles.leaderDesc, color: 'var(--color-primary)', fontWeight: 'bold'}}>{t('chairman')}</p>
             </div>
 
-            {/* Vice Chairman */}
+            {/* Director */}
             <div style={styles.leaderCard}>
               <div style={styles.leaderImgWrapper}>
-                <img src={leaderImg2} alt={t('viceChairman')} style={styles.leaderImg} />
+                <img src={leaderImg2} alt="Mkurugenzi" style={styles.leaderImg} />
               </div>
-              <h3 style={styles.leaderRole}>{t('viceChairman')}</h3>
-              <p style={styles.leaderDesc}>{t('zecHq')}</p>
+              <h3 style={{...styles.leaderRole, color: 'var(--color-text)'}}>Ndg. Thabit Idarous Faina</h3>
+              <p style={{...styles.leaderDesc, color: 'var(--color-primary)', fontWeight: 'bold'}}>Mkurugenzi</p>
             </div>
 
             {/* Commissioners */}
@@ -204,6 +204,7 @@ const styles = {
     padding: '20px',
     borderRadius: '16px',
     border: '1px solid var(--color-border)',
+    borderTop: '4px solid var(--color-primary)',
     boxShadow: 'var(--shadow-sm)',
     display: 'flex',
     flexDirection: 'column',
@@ -240,6 +241,7 @@ const styles = {
   valueCard: {
     backgroundColor: 'var(--color-surface)',
     border: '1px solid var(--color-border)',
+    borderTop: '4px solid var(--color-primary)',
     borderRadius: '16px',
     padding: '20px 12px',
     display: 'flex',

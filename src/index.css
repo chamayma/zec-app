@@ -86,6 +86,23 @@ body {
   animation: float 3s ease-in-out infinite;
 }
 
+@keyframes jumping {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+.jumping-bot {
+  animation: jumping 1.5s infinite ease-in-out;
+}
+.jumping-bot.active {
+  animation: none;
+  transform: translateY(-4px) scale(1.05);
+}
+
 /* Utilities */
 .glass-panel {
   background: var(--glass-bg);
@@ -111,10 +128,7 @@ body {
 .main-content {
   flex: 1;
   padding-bottom: 80px; /* Space for bottom nav */
-  overflow-y: auto;
 }
-
-/* Base styles for PWA feel */
 a {
   text-decoration: none;
   color: inherit;

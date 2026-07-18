@@ -480,6 +480,7 @@ const styles = {
   candidateCard: {
     backgroundColor: 'var(--color-surface)',
     border: '1px solid var(--color-border)',
+    borderTop: '4px solid var(--color-primary)',
     padding: '16px',
     borderRadius: '16px',
     display: 'flex',
@@ -546,6 +547,7 @@ const styles = {
   regionalCard: {
     backgroundColor: 'var(--color-surface)',
     border: '1px solid var(--color-border)',
+    borderTop: '4px solid var(--color-primary)',
     borderRadius: '16px',
     overflow: 'hidden'
   },

@@ -24,6 +24,7 @@ export default function VoterEducation() {
   const { isDark } = useTheme();
   const [activeTab, setActiveTab] = useState('videos');
   const [openFaq, setOpenFaq] = useState(null);
+  const [selectedKatuni, setSelectedKatuni] = useState(null);
 
   const tabs = [
     { id: 'videos', label: 'Video & Katuni', icon: PlayCircle },
@@ -124,7 +125,11 @@ export default function VoterEducation() {
               <h3 style={styles.sectionHeading}>Katuni za Elimu</h3>
               <div style={styles.katuniList}>
                 {katuniList.map(item => (
-                  <div key={item.id} style={styles.katuniCard}>
+                  <div 
+                    key={item.id} 
+                    style={{...styles.katuniCard, cursor: 'pointer'}}
+                    onClick={() => setSelectedKatuni(item.img)}
+                  >
                     <div style={{ ...styles.katuniThumb, backgroundImage: `url(${item.img})` }} />
                     <div style={styles.katuniBody}>
                       <h4 style={{ ...styles.katuniTitle, color: isDark ? 'var(--color-primary)' : '#000' }}>{item.title}</h4>
@@ -184,6 +189,18 @@ export default function VoterEducation() {
           </div>
         )}
       </div>
+
+      {/* Modal for Katuni popup */}
+      {selectedKatuni && (
+        <div style={styles.modalOverlay} onClick={() => setSelectedKatuni(null)}>
+          <div style={styles.modalContent} onClick={e => e.stopPropagation()}>
+            <img src={selectedKatuni} alt="Katuni Popup" style={styles.modalImg} />
+            <button style={styles.closeBtn} onClick={() => setSelectedKatuni(null)}>
+              Funga
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
@@ -247,6 +264,7 @@ const styles = {
     overflow: 'hidden',
     boxShadow: 'var(--shadow-sm)',
     border: '1px solid var(--color-border)',
+    borderTop: '4px solid var(--color-primary)',
     display: 'flex',
     flexDirection: 'column',
   },
@@ -311,6 +329,7 @@ const styles = {
     backgroundColor: 'var(--color-surface)',
     borderRadius: '12px',
     border: '1px solid var(--color-border)',
+    borderTop: '4px solid var(--color-primary)',
     padding: '12px',
     boxShadow: '0 2px 4px rgba(0,0,0,0.02)',
   },
@@ -366,6 +385,7 @@ const styles = {
     backgroundColor: 'var(--color-surface)',
     borderRadius: '16px',
     border: '1px solid var(--color-border)',
+    borderTop: '4px solid var(--color-primary)',
     boxShadow: 'var(--shadow-sm)',
     overflow: 'hidden'
   },
@@ -412,6 +432,7 @@ const styles = {
     backgroundColor: 'var(--color-surface)',
     borderRadius: '16px',
     border: '1px solid var(--color-border)',
+    borderTop: '4px solid var(--color-primary)',
     padding: '12px',
     boxShadow: 'var(--shadow-sm)',
   },
@@ -447,5 +468,42 @@ const styles = {
     alignItems: 'center',
     justifyContent: 'center',
     border: 'none',
+  },
+  modalOverlay: {
+    position: 'fixed',
+    top: 0, left: 0, right: 0, bottom: 0,
+    backgroundColor: 'rgba(0,0,0,0.85)',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    zIndex: 9999,
+    padding: '20px',
+  },
+  modalContent: {
+    position: 'relative',
+    maxWidth: '100%',
+    maxHeight: '100%',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+  },
+  modalImg: {
+    maxWidth: '100%',
+    maxHeight: '75vh',
+    objectFit: 'contain',
+    borderRadius: '16px',
+    boxShadow: '0 10px 40px rgba(0,0,0,0.5)',
+  },
+  closeBtn: {
+    marginTop: '20px',
+    padding: '12px 32px',
+    backgroundColor: 'var(--color-primary)',
+    color: '#111',
+    border: 'none',
+    borderRadius: '30px',
+    fontWeight: '800',
+    fontSize: '14px',
+    cursor: 'pointer',
+    boxShadow: '0 4px 12px rgba(212, 175, 55, 0.4)',
   }
 };

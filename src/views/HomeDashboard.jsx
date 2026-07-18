@@ -69,7 +69,7 @@ export default function HomeDashboard() {
       {/* News Section */}
       <section style={styles.section}>
         <div style={styles.newsHeader}>
-          <h3 style={styles.sectionTitle} style={{margin:0}}>{t('news')}</h3>
+          <h3 style={{...styles.sectionTitle, margin:0}}>{t('news')}</h3>
           <button style={styles.seeAllBtn} onClick={() => navigate('/news')}>
             Angalia Zote <ArrowRight size={14} />
           </button>
@@ -152,6 +152,7 @@ const styles = {
     backgroundColor: 'var(--color-surface)',
     borderRadius: '18px',
     border: '1px solid var(--color-border)',
+    borderTop: '4px solid var(--color-primary)',
     padding: '16px 12px',
     textAlign: 'center',
     boxShadow: 'var(--shadow-sm)',
@@ -187,6 +188,11 @@ const styles = {
     display: 'flex',
     alignItems: 'center',
     gap: '4px',
+    background: 'none',
+    border: 'none',
+    cursor: 'pointer',
+    padding: 0,
+    whiteSpace: 'nowrap',
   },
   newsScroller: {
     display: 'grid',
