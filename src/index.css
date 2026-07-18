@@ -1,33 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap');
+
 :root {
-  --color-primary: #D4AF37; /* Gold */
-  --color-primary-dark: #C5A028;
-  --color-secondary: #808080; /* Gray */
+  --color-primary: #E5C158; /* More vibrant gold */
+  --color-primary-dark: #D4AF37;
+  --color-primary-light: rgba(229, 193, 88, 0.15);
+  --color-secondary: #808080;
   --color-bg: #FFFFFF;
-  --color-surface: #F5F5F5;
-  --color-text: #1A1A1A; /* Blackish */
-  --color-text-muted: #666666;
-  --color-border: #E5E5E5;
-  --color-error: #E53935;
-  --color-warning: #FFB300;
-  --color-info: #1E88E5;
-  --color-success: #43A047;
+  --color-surface: #FFFFFF;
+  --color-text: #1A1D20; /* Softer black */
+  --color-text-muted: #6B7280;
+  --color-border: #F3F4F6;
+  --color-error: #EF4444;
+  --color-warning: #F59E0B;
+  --color-info: #3B82F6;
+  --color-success: #10B981;
   
   --radius-sm: 8px;
-  --radius-md: 12px;
-  --radius-lg: 20px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
   --radius-full: 9999px;
 
-  --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
-  --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
-  --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+  --shadow-sm: 0 2px 8px rgba(0,0,0,0.05);
+  --shadow-md: 0 8px 16px -4px rgba(0,0,0,0.06), 0 4px 8px -2px rgba(0,0,0,0.04);
+  --shadow-lg: 0 20px 25px -5px rgba(0,0,0,0.08), 0 8px 10px -6px rgba(0,0,0,0.04);
+  --shadow-glow: 0 0 15px rgba(229, 193, 88, 0.5);
+  
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.5);
 }
 
 [data-theme="dark"] {
-  --color-bg: #121212;
-  --color-surface: #1E1E1E;
-  --color-text: #F5F5F5;
-  --color-text-muted: #A0A0A0;
-  --color-border: #333333;
+  --color-bg: #0F1115; /* Richer dark */
+  --color-surface: #181B21;
+  --color-text: #F9FAFB;
+  --color-text-muted: #9CA3AF;
+  --color-border: #272A30;
+  --glass-bg: rgba(24, 27, 33, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.05);
 }
 
 * {
@@ -37,15 +46,54 @@
 }
 
 body {
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-family: 'Outfit', system-ui, -apple-system, sans-serif;
   background-color: var(--color-bg);
   color: var(--color-text);
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-6px); }
+  100% { transform: translateY(0px); }
+}
+
+@keyframes pulseSoft {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
 }
 
 /* Utilities */
+.glass-panel {
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--glass-border);
+}
+
 .app-container {
   width: 100%;
   max-width: 600px;
@@ -57,11 +105,12 @@ body {
   overflow-x: hidden;
   display: flex;
   flex-direction: column;
+  transition: background-color 0.4s ease;
 }
 
 .main-content {
   flex: 1;
-  padding-bottom: 70px; /* Space for bottom nav */
+  padding-bottom: 80px; /* Space for bottom nav */
   overflow-y: auto;
 }
 
@@ -77,4 +126,9 @@ button {
   cursor: pointer;
   font-family: inherit;
   color: inherit;
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.2s;
+}
+
+button:active {
+  transform: scale(0.95) !important;
 }

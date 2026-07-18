@@ -28,13 +28,21 @@ export default function ZecBot() {
 
     // Simulate bot response
     setTimeout(() => {
-      let botResponse = 'Samahani, sijakuelewa vizuri. Tafadhali uliza kuhusu "Kituo changu", "Tarehe ya uchaguzi" au "Jinsi ya kupiga kura".';
+      let botResponse = 'Samahani, sijakuelewa vizuri. Tafadhali uliza kuhusu "Kituo changu", "Tarehe ya uchaguzi", "Jinsi ya kupiga kura", "Kazi za ZEC", au "Mawasiliano".';
 
       const lowerInput = userMsg.text.toLowerCase();
       if (lowerInput.includes('kituo') || lowerInput.includes('wapi')) {
         botResponse = 'Ili kujua kituo chako, tafadhali nenda kwenye sehemu ya "Hakiki Taarifa" kisha ingiza namba yako ya kitambulisho cha Mzanzibari Mkaazi.';
       } else if (lowerInput.includes('lini') || lowerInput.includes('tarehe')) {
         botResponse = 'Uchaguzi mkuu unatarajiwa kufanyika mwezi Oktoba 2026. Kwa ratiba kamili, tafadhali tembelea sehemu ya "Ratiba ya Uchaguzi".';
+      } else if (lowerInput.includes('mawasiliano') || lowerInput.includes('simu') || lowerInput.includes('barua pepe')) {
+        botResponse = 'Unaweza kuwasiliana na ZEC kupitia namba ya simu ya bure 0880 11 0221 au barua pepe info@zec.go.tz.';
+      } else if (lowerInput.includes('zec ni nini') || lowerInput.includes('kazi za zec') || lowerInput.includes('majukumu')) {
+        botResponse = 'ZEC (Zanzibar Electoral Commission) ni Tume ya Uchaguzi ya Zanzibar yenye jukumu la kusimamia na kuendesha uchaguzi wa Rais, Wajumbe wa Baraza la Wawakilishi na Madiwani kwa haki, uhuru na uwazi.';
+      } else if (lowerInput.includes('kujiandikisha') || lowerInput.includes('daftari') || lowerInput.includes('sifa')) {
+        botResponse = 'Ili kujiandikisha kupiga kura, lazima uwe Mzanzibari Mkaazi, mwenye umri kuanzia miaka 18, na uwe na kitambulisho cha Mzanzibari Mkaazi (ZANID).';
+      } else if (lowerInput.includes('jinsi ya kupiga kura') || lowerInput.includes('kupiga kura')) {
+        botResponse = 'Jinsi ya kupiga kura: 1. Fika kituoni na kitambulisho chako. 2. Hakikiwa jina lako. 3. Chukua karatasi ya kura. 4. Piga kura kwa siri. 5. Tumbukiza kwenye sanduku.';
       }
 
       setMessages(prev => [...prev, { id: Date.now() + 1, type: 'bot', text: botResponse }]);

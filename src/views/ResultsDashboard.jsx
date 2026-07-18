@@ -6,7 +6,7 @@ import { useLanguage } from '../context/LanguageContext';
 
 import raisiImg from '../assets/images/raisi.jpeg';
 import othmanImg from '../assets/images/othman.jpeg';
-
+import hamadImg from '../assets/images/hamad.png';
 export default function ResultsDashboard() {
   const navigate = useNavigate();
   const { isDark } = useTheme();
@@ -38,7 +38,7 @@ export default function ResultsDashboard() {
       votes: '15,472',
       percentage: 3.1,
       color: 'var(--color-secondary)',
-      img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAO5Vnv_Id-C8N-NSkiXMhE54qacHFZEZc3TcrZzUmgXNr0fZg-IfAX_fhUlA5uqMQukCDJKcwsnOJmckcdoBjdqrl3l3lMjqt3-HYvd1vqhaGVAOJMaonOwp5unXk9R7TKa-n8nebm6-XuO9JwnPwLxh3GWQ3j0hbWsWgkpPEg8pvf3fdxvVK3F4lajQSJf59RFJqbn94XHyeQiP-vgHXt3c8A2FAZ-RZuySad0yXH7-E_uHCt9gofPRm8tDQPTgT-slH0-YEbs6mt'
+      img: hamadImg
     }
   ];
 

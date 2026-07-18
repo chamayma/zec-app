@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useLanguage } from '../context/LanguageContext';
 import { useNavigate } from 'react-router-dom';
-import { Phone, Mail, MapPin, Clock, MessageSquare, Send, CheckCircle2, ChevronRight, ChevronDown, ArrowLeft } from 'lucide-react';
+import { Phone, Mail, MapPin, Clock, MessageSquare, Send, CheckCircle2, ChevronRight, ChevronDown, ArrowLeft, Globe } from 'lucide-react';
 import heroImg from '../assets/images/img12.jpeg';
 
 const FacebookIcon = () => (
@@ -73,12 +73,12 @@ export default function Contact() {
         
         {/* Quick Contact Cards */}
         <div style={styles.cardsGrid}>
-          <a href="tel:119" style={{...styles.contactCard, backgroundColor: '#E8F5E9', border: '1px solid #C8E6C9'}}>
+          <a href="tel:0880110221" style={{...styles.contactCard, backgroundColor: '#E8F5E9', border: '1px solid #C8E6C9'}}>
             <div style={{...styles.iconWrapper, backgroundColor: '#4CAF50'}}>
               <Phone size={18} color="#fff" />
             </div>
             <h3 style={styles.cardTitle}>Piga Simu (Bure)</h3>
-            <p style={{...styles.cardValue, color: '#2E7D32'}}>119</p>
+            <p style={{...styles.cardValue, color: '#2E7D32'}}>0880 11 0221</p>
           </a>
 
           <a href="mailto:info@zec.go.tz" style={{...styles.contactCard, backgroundColor: '#E3F2FD', border: '1px solid #BBDEFB'}}>
@@ -113,10 +113,18 @@ export default function Contact() {
           
           <div style={styles.socialRowCenter}>
             <span style={{fontSize: '12px', fontWeight: '600', marginRight: '8px', color: 'var(--color-text-muted)'}}>Mitandao:</span>
-            <div style={{...styles.socialBtn, backgroundColor: '#3b5998'}}><FacebookIcon /></div>
-            <div style={{...styles.socialBtn, backgroundColor: '#1DA1F2'}}><TwitterIcon /></div>
-            <div style={{...styles.socialBtn, background: 'linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%)'}}><InstagramIcon /></div>
-            <div style={{...styles.socialBtn, backgroundColor: '#FF0000'}}><YoutubeIcon /></div>
+            <a href="https://www.facebook.com/zec_pages" target="_blank" rel="noopener noreferrer" style={{...styles.socialBtn, backgroundColor: '#3b5998'}}>
+              <FacebookIcon />
+            </a>
+            <a href="https://www.instagram.com/zec_zanzibar" target="_blank" rel="noopener noreferrer" style={{...styles.socialBtn, background: 'linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%)'}}>
+              <InstagramIcon />
+            </a>
+            <a href="https://www.youtube.com/results?search_query=Zec+Online+TV" target="_blank" rel="noopener noreferrer" style={{...styles.socialBtn, backgroundColor: '#FF0000'}}>
+              <YoutubeIcon />
+            </a>
+            <a href="https://www.zec.go.tz" target="_blank" rel="noopener noreferrer" style={{...styles.socialBtn, backgroundColor: 'var(--color-primary)'}}>
+              <Globe size={18} color="#fff" />
+            </a>
           </div>
         </div>
 

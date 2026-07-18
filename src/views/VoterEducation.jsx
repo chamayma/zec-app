@@ -8,6 +8,11 @@ import vidImg2 from '../assets/images/img9.jpeg';
 import vidImg3 from '../assets/images/img10.jpeg';
 import vidImg4 from '../assets/images/img11.jpeg';
 
+import video1 from '../assets/Video/elimu_ya_wapiga_kura.mp4';
+import video2 from '../assets/Video/mzunguuko_wa_uchaguzi.mp4';
+import video3 from '../assets/Video/nafasi_ya_sheha_katika_uendelezaji_wa_daftari_la_kudumu_la_wapiga_kura.mp4';
+import video4 from '../assets/Video/uwekaji_wazi_wa_orodha_waliopoteza_sifa_kuwa_wapiga_kura_na_waliohamisha_taarifa_zao.mp4';
+
 import katImg1 from '../assets/images/img13.jpeg';
 import katImg2 from '../assets/images/img14.jpeg';
 import katImg3 from '../assets/images/img15.jpeg';
@@ -27,10 +32,10 @@ export default function VoterEducation() {
   ];
 
   const videos = [
-    { id: 1, title: 'Jinsi ya kupiga kura', duration: '3:45', category: 'Mafunzo', thumb: vidImg1 },
-    { id: 2, title: 'Wajibu wa mpiga kura', duration: '5:20', category: 'Mafunzo', thumb: vidImg2 },
-    { id: 3, title: 'Ujumbe wa Mwenyekiti', duration: '2:15', category: 'Ujumbe', thumb: vidImg3 },
-    { id: 4, title: 'Makosa yanayoharibu kura', duration: '4:10', category: 'Elimu', thumb: vidImg4 },
+    { id: 1, title: 'Elimu ya wapiga kura', duration: 'Video', category: 'Elimu', thumb: vidImg1, src: video1 },
+    { id: 2, title: 'Mzunguko wa uchaguzi', duration: 'Video', category: 'Mafunzo', thumb: vidImg2, src: video2 },
+    { id: 3, title: 'Nafasi ya sheha katika daftari la kudumu la wapiga kura', duration: 'Video', category: 'Mafunzo', thumb: vidImg3, src: video3 },
+    { id: 4, title: 'Uwekaji wazi wa orodha ya wapiga kura waliopoteza sifa na waliohamisha taarifa', duration: 'Video', category: 'Elimu', thumb: vidImg4, src: video4 },
   ];
 
   const katuniList = [
@@ -58,10 +63,10 @@ export default function VoterEducation() {
   return (
     <div style={styles.container}>
       <div style={styles.headerArea}>
-        <div style={{display: 'flex', alignItems: 'center', marginBottom: '8px'}}>
-          <button 
-            onClick={() => navigate(-1)} 
-            style={{background: 'none', border: 'none', padding: 0, marginRight: '12px', cursor: 'pointer', display: 'flex'}}
+        <div style={{ display: 'flex', alignItems: 'center', marginBottom: '8px' }}>
+          <button
+            onClick={() => navigate(-1)}
+            style={{ background: 'none', border: 'none', padding: 0, marginRight: '12px', cursor: 'pointer', display: 'flex' }}
           >
             <ArrowLeft size={24} color="var(--color-primary)" />
           </button>
@@ -75,7 +80,7 @@ export default function VoterEducation() {
 
       <div style={styles.tabContainer}>
         {tabs.map(tab => (
-          <button 
+          <button
             key={tab.id}
             style={{
               ...styles.tab,
@@ -84,8 +89,8 @@ export default function VoterEducation() {
             }}
             onClick={() => setActiveTab(tab.id)}
           >
-            <tab.icon size={20} style={{marginBottom: 4}} />
-            <span style={{fontSize: '13px', fontWeight: '600'}}>{tab.label}</span>
+            <tab.icon size={20} style={{ marginBottom: 4 }} />
+            <span style={{ fontSize: '13px', fontWeight: '600' }}>{tab.label}</span>
           </button>
         ))}
       </div>
@@ -93,16 +98,18 @@ export default function VoterEducation() {
       <div style={styles.content}>
         {activeTab === 'videos' && (
           <>
-            <div style={{marginBottom: '24px'}}>
+            <div style={{ marginBottom: '24px' }}>
               <h3 style={styles.sectionHeading}>Video za Mafunzo</h3>
               <div style={styles.videoGrid}>
                 {videos.map(vid => (
                   <div key={vid.id} style={styles.videoCard}>
-                    <div style={{...styles.videoThumb, backgroundImage: `url(${vid.thumb})`}}>
-                      <div style={styles.playOverlay}>
-                        <PlayCircle size={40} color="rgba(255,255,255,0.9)" />
-                      </div>
-                      <span style={styles.duration}>{vid.duration}</span>
+                    <div style={{ ...styles.videoThumb }}>
+                      <video
+                        src={vid.src}
+                        poster={vid.thumb}
+                        controls
+                        style={{ width: '100%', height: '100%', objectFit: 'cover', backgroundColor: '#000' }}
+                      />
                     </div>
                     <div style={styles.videoInfo}>
                       <span style={styles.category}>{vid.category}</span>
@@ -118,13 +125,13 @@ export default function VoterEducation() {
               <div style={styles.katuniList}>
                 {katuniList.map(item => (
                   <div key={item.id} style={styles.katuniCard}>
-                    <div style={{...styles.katuniThumb, backgroundImage: `url(${item.img})`}} />
+                    <div style={{ ...styles.katuniThumb, backgroundImage: `url(${item.img})` }} />
                     <div style={styles.katuniBody}>
-                      <h4 style={{...styles.katuniTitle, color: isDark ? 'var(--color-primary)' : '#000'}}>{item.title}</h4>
+                      <h4 style={{ ...styles.katuniTitle, color: isDark ? 'var(--color-primary)' : '#000' }}>{item.title}</h4>
                       <p style={styles.katuniDesc}>{item.desc}</p>
                     </div>
                     <div style={styles.katuniRight}>
-                      <span style={{...styles.katuniBadge, color: item.badgeColor}}>{item.badge}</span>
+                      <span style={{ ...styles.katuniBadge, color: item.badgeColor }}>{item.badge}</span>
                       <ArrowRight size={20} color={isDark ? 'var(--color-primary)' : '#000'} />
                     </div>
                   </div>
@@ -139,12 +146,12 @@ export default function VoterEducation() {
           <div style={styles.faqList}>
             {faqs.map(faq => (
               <div key={faq.id} style={styles.faqItem}>
-                <button 
+                <button
                   style={styles.faqHeader}
                   onClick={() => setOpenFaq(openFaq === faq.id ? null : faq.id)}
                 >
-                  <span style={{...styles.faqQ, color: openFaq === faq.id ? 'var(--color-primary)' : 'var(--color-text)'}}>{faq.q}</span>
-                  <div style={{...styles.faqIconBox, backgroundColor: openFaq === faq.id ? 'var(--color-primary)' : 'var(--color-border)'}}>
+                  <span style={{ ...styles.faqQ, color: openFaq === faq.id ? 'var(--color-primary)' : 'var(--color-text)' }}>{faq.q}</span>
+                  <div style={{ ...styles.faqIconBox, backgroundColor: openFaq === faq.id ? 'var(--color-primary)' : 'var(--color-border)' }}>
                     {openFaq === faq.id ? <ChevronUp size={16} color={openFaq === faq.id ? '#fff' : (isDark ? 'var(--color-primary)' : '#000')} /> : <ChevronDown size={16} color={isDark ? 'var(--color-primary)' : '#000'} />}
                   </div>
                 </button>

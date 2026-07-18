@@ -28,7 +28,7 @@ export default function HomeDashboard() {
         <ImageSlider />
         
         {/* Instant Help Banner */}
-        <div style={styles.helpBanner}>
+        <div className="animate-fade-in-up" style={styles.helpBanner}>
           <div style={styles.helpBannerLeft}>
             <CalendarDays size={18} color="var(--color-primary)" style={{marginRight: '8px'}} />
             <span>Uchaguzi Mkuu wa Zanzibar</span>
@@ -50,7 +50,11 @@ export default function HomeDashboard() {
           {quickLinks.map((link, index) => (
             <button 
               key={index} 
-              style={styles.bentoCard} 
+              className="animate-fade-in-up"
+              style={{
+                ...styles.bentoCard,
+                animationDelay: `${index * 0.05}s`
+              }} 
               onClick={() => navigate(link.path)}
             >
               <div style={styles.iconCircle}>
@@ -72,13 +76,13 @@ export default function HomeDashboard() {
         </div>
         
         <div style={styles.newsScroller}>
-          <div style={styles.newsCard}>
+          <div className="animate-fade-in-up" style={{...styles.newsCard, animationDelay: '0.1s'}}>
             <div style={{...styles.newsThumb, backgroundImage: `url(${newsImg1})`, backgroundPosition: 'top center'}}></div>
             <p style={styles.newsCategory}>ZEC NEWS</p>
             <h4 style={styles.newsTitle}>ZEC yatangaza tarehe za uandikishaji wa daftari la kudumu.</h4>
             <p style={styles.newsDate}>Mei 14, 2026</p>
           </div>
-          <div style={styles.newsCard}>
+          <div className="animate-fade-in-up" style={{...styles.newsCard, animationDelay: '0.2s'}}>
             <div style={{...styles.newsThumb, backgroundImage: `url(${newsImg2})`, backgroundPosition: 'top center'}}></div>
             <p style={styles.newsCategory}>ZEC NEWS</p>
             <h4 style={styles.newsTitle}>Mafunzo kwa wasimamizi wa vituo vya kupigia kura yaanza rasmi.</h4>
@@ -150,7 +154,7 @@ const styles = {
     border: '1px solid var(--color-border)',
     padding: '16px 12px',
     textAlign: 'center',
-    boxShadow: '0px 2px 8px rgba(0,0,0,0.03)',
+    boxShadow: 'var(--shadow-sm)',
     transition: 'transform 0.15s ease',
   },
   iconCircle: {
