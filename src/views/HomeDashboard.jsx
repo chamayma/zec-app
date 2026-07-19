@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
-import { MapPin, UserSearch, Calendar, Newspaper, GraduationCap, BarChart3, CalendarDays, ArrowRight, Phone, MessageSquare } from 'lucide-react';
+import { MapPin, UserSearch, Calendar, Newspaper, BookOpen, BarChart3, CalendarDays, ArrowRight, Phone, MessageSquare } from 'lucide-react';
 import ImageSlider from '../components/ImageSlider';
 import newsImg1 from '../assets/images/img6.jpeg';
 import newsImg2 from '../assets/images/img7.jpeg';
@@ -15,7 +15,7 @@ export default function HomeDashboard() {
     { icon: UserSearch, label: t('verifyVoter'), path: '/verify' },
     { icon: Calendar, label: t('schedule'), path: '/calendar' },
     { icon: Newspaper, label: t('news'), path: '/news' },
-    { icon: GraduationCap, label: t('voterEducation'), path: '/education' },
+    { icon: BookOpen, label: t('voterEducation'), path: '/education' },
     { icon: BarChart3, label: t('results'), path: '/results' },
     { icon: Phone, label: t('contact'), path: '/contact' },
     { icon: MessageSquare, label: t('zecBotHelp'), path: '/bot' },
@@ -38,10 +38,6 @@ export default function HomeDashboard() {
           </button>
         </div>
       </section>
-
-      <p style={styles.motto}>
-        {t('motto')}
-      </p>
 
       {/* Quick Actions Grid */}
       <section style={styles.section}>
@@ -128,13 +124,6 @@ const styles = {
     fontSize: '11px',
     fontWeight: '700',
     transition: 'background-color 0.2s',
-  },
-  motto: {
-    textAlign: 'center',
-    fontSize: '14px',
-    color: 'var(--color-text-muted)',
-    marginBottom: '24px',
-    padding: '0 16px',
   },
   sectionTitle: {
     fontSize: '15px',

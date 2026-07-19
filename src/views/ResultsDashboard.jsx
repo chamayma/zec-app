@@ -164,7 +164,6 @@ export default function ResultsDashboard() {
         {/* Regional Results (Right) */}
         <div style={styles.sideColumn}>
           <h3 style={{...styles.sectionTitle, color: isDark ? 'var(--color-primary)' : 'var(--color-text)'}}>Regional Results</h3>
-          <h3 style={{...styles.sectionTitle, color: isDark ? 'var(--color-primary)' : 'var(--color-text)'}}>{t('regionalResults') || 'Regional Results'}</h3>
           
           <div style={styles.regionalCard}>
             <div style={styles.mapPlaceholder}>

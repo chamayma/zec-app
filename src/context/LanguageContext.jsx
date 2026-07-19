@@ -12,7 +12,6 @@ const translations = {
     more: 'Zaidi',
     
     // Home Dashboard
-    motto: 'Kumuwezesha mwananchi kupata huduma zote za uchaguzi kwa urahisi, uwazi na kwa wakati kupitia simu yake.',
     findStation: 'Tafuta Kituo Chako',
     verifyVoter: 'Hakiki Taarifa za Mpiga Kura',
     schedule: 'Ratiba ya Uchaguzi',
@@ -147,7 +146,6 @@ const translations = {
     more: 'More',
     
     // Home Dashboard
-    motto: 'Empowering citizens to access all electoral services easily, transparently and timely via their mobile phones.',
     findStation: 'Find Your Station',
     verifyVoter: 'Verify Voter Info',
     schedule: 'Election Schedule',

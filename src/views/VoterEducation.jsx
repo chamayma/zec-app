@@ -44,7 +44,7 @@ export default function VoterEducation() {
     { id: 2, title: 'Wajibu wa mpiga kura', desc: 'Kwanini kura yako ni muhimu kwa taifa letu.', badge: 'Katuni #2', badgeColor: 'var(--color-text-muted)', img: katImg2 },
     { id: 3, title: 'Mambo ya kuzingatia kwa wapiga kura', desc: 'Ratiba na nyaraka muhimu za kubeba.', badge: 'Katuni #3', badgeColor: 'var(--color-text-muted)', img: katImg3 },
     { id: 4, title: 'Nafasi ya Asasi za Kiraia katika uchaguzi', desc: 'Ushiriki wa mashirika katika kuhamasisha amani.', badge: 'Katuni #4', badgeColor: 'var(--color-text-muted)', img: katImg4 },
-    { id: 5, title: 'Makosa yanayoweza kuharibu kura', desc: 'Jinsi ya kuhakikisha kura yako inahesabiwa.', badge: 'Muhimu', badgeColor: 'var(--color-error, #d32f2f)', img: katImg5 },
+    { id: 5, title: 'Makosa yanayoweza kuharibu kura', desc: 'Jinsi ya kuhakikisha kura yako inahesabiwa.', badge: 'Katuni #5', badgeColor: 'var(--color-text-muted)', img: katImg5 },
   ];
 
   const faqs = [
