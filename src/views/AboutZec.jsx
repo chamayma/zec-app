@@ -10,7 +10,7 @@ import awadhImg from '../assets/images/awadh.webp';
 import idrisaImg from '../assets/images/idrisa.webp';
 import ayoubImg from '../assets/images/ayoub.webp';
 import jumaImg from '../assets/images/juma.webp';
-import halimaImg from '../assets/images/hamad.webp'; // Fallback for Halima Mohamed Said
+import halimaImg from '../assets/images/halima.webp';
 
 export default function AboutZec() {
   const { t } = useLanguage();
