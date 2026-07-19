@@ -3,21 +3,21 @@ import { useNavigate } from 'react-router-dom';
 import { PlayCircle, HelpCircle, FileText, ChevronDown, ChevronUp, Download, ArrowRight, ArrowLeft } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
 
-import vidImg1 from '../assets/images/img8.jpeg';
-import vidImg2 from '../assets/images/img9.jpeg';
-import vidImg3 from '../assets/images/img10.jpeg';
-import vidImg4 from '../assets/images/img11.jpeg';
+import vidImg1 from '../assets/images/img8.webp';
+import vidImg2 from '../assets/images/img9.webp';
+import vidImg3 from '../assets/images/img10.webp';
+import vidImg4 from '../assets/images/img11.webp';
 
 import video1 from '../assets/Video/elimu_ya_wapiga_kura.mp4';
 import video2 from '../assets/Video/mzunguuko_wa_uchaguzi.mp4';
 import video3 from '../assets/Video/nafasi_ya_sheha_katika_uendelezaji_wa_daftari_la_kudumu_la_wapiga_kura.mp4';
 import video4 from '../assets/Video/uwekaji_wazi_wa_orodha_waliopoteza_sifa_kuwa_wapiga_kura_na_waliohamisha_taarifa_zao.mp4';
 
-import katImg1 from '../assets/images/img13.jpeg';
-import katImg2 from '../assets/images/img14.jpeg';
-import katImg3 from '../assets/images/img15.jpeg';
-import katImg4 from '../assets/images/img16.jpeg';
-import katImg5 from '../assets/images/img17.jpeg';
+import katImg1 from '../assets/images/img13.webp';
+import katImg2 from '../assets/images/img14.webp';
+import katImg3 from '../assets/images/img15.webp';
+import katImg4 from '../assets/images/img16.webp';
+import katImg5 from '../assets/images/img17.webp';
 
 export default function VoterEducation() {
   const navigate = useNavigate();
@@ -64,17 +64,9 @@ export default function VoterEducation() {
   return (
     <div style={styles.container}>
       <div style={styles.headerArea}>
-        <div style={{ display: 'flex', alignItems: 'center', marginBottom: '8px' }}>
-          <button
-            onClick={() => navigate(-1)}
-            style={{ background: 'none', border: 'none', padding: 0, marginRight: '12px', cursor: 'pointer', display: 'flex' }}
-          >
-            <ArrowLeft size={24} color="var(--color-primary)" />
-          </button>
           <div style={styles.iconCircle}>
             <FileText size={24} color="var(--color-primary)" />
           </div>
-        </div>
         <h2 style={styles.pageTitle}>Elimu ya Mpiga Kura</h2>
         <p style={styles.pageSubtitle}>Pata miongozo, maswali na video za kuelimisha.</p>
       </div>
@@ -207,13 +199,13 @@ export default function VoterEducation() {
 
 const styles = {
   container: {
-    padding: '16px',
+    padding: '4px 16px 16px 16px',
     paddingBottom: '80px',
   },
   headerArea: {
     textAlign: 'center',
     marginBottom: '24px',
-    padding: '20px 0',
+    paddingBottom: '20px',
   },
   iconCircle: {
     width: '56px',

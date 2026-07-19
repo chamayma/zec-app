@@ -5,14 +5,14 @@ import { useLanguage } from '../context/LanguageContext';
 import { useTheme } from '../context/ThemeContext';
 
 // Import local assets
-import heroImg from '../assets/images/img12.jpeg';
-import newsImg1 from '../assets/images/img4.jpeg';
-import newsImg2 from '../assets/images/img5.jpeg';
-import newsImg3 from '../assets/images/img6.jpeg';
+import heroImg from '../assets/images/img12.webp';
+import newsImg1 from '../assets/images/img4.webp';
+import newsImg2 from '../assets/images/img5.webp';
+import newsImg3 from '../assets/images/img6.webp';
 
-import mediaThumb1 from '../assets/images/img1.jpeg';
-import mediaThumb2 from '../assets/images/img7.jpeg';
-import mediaThumb3 from '../assets/images/img8.jpeg';
+import mediaThumb1 from '../assets/images/img1.webp';
+import mediaThumb2 from '../assets/images/img7.webp';
+import mediaThumb3 from '../assets/images/img8.webp';
 
 import video1 from '../assets/Video/elimu_ya_wapiga_kura.mp4';
 import video2 from '../assets/Video/mzunguuko_wa_uchaguzi.mp4';
@@ -193,7 +193,7 @@ const styles = {
     flexDirection: 'column'
   },
   headerArea: {
-    padding: '24px 16px 0 16px',
+    padding: '8px 16px 0 16px',
     maxWidth: '1280px',
     margin: '0 auto',
     width: '100%'

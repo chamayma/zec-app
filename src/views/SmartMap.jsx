@@ -82,12 +82,6 @@ export default function SmartMap() {
 
       {/* Floating Header & Search */}
       <div style={styles.headerLayer}>
-        <button 
-          onClick={() => navigate(-1)} 
-          style={{background: 'rgba(255,255,255,0.9)', border: '1px solid var(--color-border)', padding: '10px', borderRadius: '50%', cursor: 'pointer', display: 'flex', boxShadow: '0 4px 12px rgba(0,0,0,0.1)', marginRight: '12px'}}
-        >
-          <ArrowLeft size={24} color="var(--color-text)" />
-        </button>
         <div style={styles.searchBox}>
           <Search size={20} color="var(--color-text-muted)" style={{marginRight: '12px'}} />
           <input 

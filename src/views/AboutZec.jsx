@@ -2,13 +2,30 @@ import React from 'react';
 import { useLanguage } from '../context/LanguageContext';
 import { useNavigate } from 'react-router-dom';
 import { Building2, Eye, Target, Scale, ShieldCheck, UserCheck, CheckCircle2, Users, Landmark, ArrowLeft } from 'lucide-react';
-import heroImg from '../assets/images/img2.jpeg'; // Assuming img2 is a good building/hero image
-import leaderImg1 from '../assets/images/jaji.jpeg'; // Chairman
-import leaderImg2 from '../assets/images/faina.jpeg'; // Director
+import heroImg from '../assets/images/img2.webp';
+import kaziImg from '../assets/images/kazi.webp';
+import azizaImg from '../assets/images/aziza.webp';
+import thabitImg from '../assets/images/thabit.webp';
+import awadhImg from '../assets/images/awadh.webp';
+import idrisaImg from '../assets/images/idrisa.webp';
+import ayoubImg from '../assets/images/ayoub.webp';
+import jumaImg from '../assets/images/juma.webp';
+import halimaImg from '../assets/images/hamad.webp'; // Fallback for Halima Mohamed Said
 
 export default function AboutZec() {
   const { t } = useLanguage();
   const navigate = useNavigate();
+
+  const leaders = [
+    { name: 'Mhe. Jaji George Joseph Kazi', role: 'Mwenyekiti', img: kaziImg },
+    { name: 'Mhe. Jaji Aziza Iddi Suwedi', role: 'Makamo Mwenyekiti', img: azizaImg },
+    { name: 'Mhe. Awadh Ali Said', role: 'Mjumbe', img: awadhImg },
+    { name: 'Mhe. Idrisa Haji Jecha', role: 'Mjumbe', img: idrisaImg },
+    { name: 'Mhe. Ayoub Bakar Hamad', role: 'Mjumbe', img: ayoubImg },
+    { name: 'Mhe. Halima Mohamed Said', role: 'Mjumbe', img: halimaImg },
+    { name: 'Mhe. Juma Haji Ussi', role: 'Mjumbe', img: jumaImg },
+    { name: 'Ndg. Thabit Idarous Faina', role: 'Mkurugenzi wa Uchaguzi na Katibu wa Tume', img: thabitImg },
+  ];
 
   return (
     <div style={styles.container}>
@@ -99,35 +116,22 @@ export default function AboutZec() {
 
         {/* Leadership */}
         <section style={{...styles.section, marginBottom: '40px'}}>
-          <h2 style={styles.sectionTitle}>{t('leadership')}</h2>
+          <h2 style={styles.sectionTitle}>Uongozi wa Tume</h2>
           <div style={styles.leadershipGrid}>
             
-            {/* Chairman */}
-            <div style={styles.leaderCard}>
-              <div style={styles.leaderImgWrapper}>
-                <img src={leaderImg1} alt={t('chairman')} style={styles.leaderImg} />
+            {leaders.map((leader, index) => (
+              <div key={index} style={styles.leaderCard}>
+                <div style={styles.leaderImgWrapper}>
+                  {leader.img ? (
+                    <img src={leader.img} alt={leader.name} style={styles.leaderImg} />
+                  ) : (
+                    <Users size={32} color="var(--color-text-muted)" />
+                  )}
+                </div>
+                <h3 style={{...styles.leaderRole, color: 'var(--color-text)'}}>{leader.name}</h3>
+                <p style={{...styles.leaderDesc, color: 'var(--color-primary)', fontWeight: 'bold'}}>{leader.role}</p>
               </div>
-              <h3 style={{...styles.leaderRole, color: 'var(--color-text)'}}>Mhe. Jaji George Joseph Kazi</h3>
-              <p style={{...styles.leaderDesc, color: 'var(--color-primary)', fontWeight: 'bold'}}>{t('chairman')}</p>
-            </div>
-
-            {/* Director */}
-            <div style={styles.leaderCard}>
-              <div style={styles.leaderImgWrapper}>
-                <img src={leaderImg2} alt="Mkurugenzi" style={styles.leaderImg} />
-              </div>
-              <h3 style={{...styles.leaderRole, color: 'var(--color-text)'}}>Ndg. Thabit Idarous Faina</h3>
-              <p style={{...styles.leaderDesc, color: 'var(--color-primary)', fontWeight: 'bold'}}>Mkurugenzi</p>
-            </div>
-
-            {/* Commissioners */}
-            <div style={styles.leaderCard}>
-              <div style={styles.leaderImgWrapper}>
-                <Users size={32} color="var(--color-text-muted)" />
-              </div>
-              <h3 style={styles.leaderRole}>{t('commissioners')}</h3>
-              <p style={styles.leaderDesc}>{t('commissionMembers')}</p>
-            </div>
+            ))}
 
           </div>
         </section>
@@ -319,7 +323,7 @@ const styles = {
     width: '100%',
     height: '100%',
     objectFit: 'cover',
-    filter: 'grayscale(100%)',
+    objectPosition: 'top center',
   },
   leaderRole: {
     fontSize: '14px',

@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Landmark, CheckCircle, Megaphone } from 'lucide-react';
 
-import img1 from '../assets/images/img1.jpeg';
-import img2 from '../assets/images/img2.jpeg';
-import img3 from '../assets/images/img3.jpeg';
-import img4 from '../assets/images/img4.jpeg';
-import img5 from '../assets/images/img5.jpeg';
+import img1 from '../assets/images/img1.webp';
+import img2 from '../assets/images/img2.webp';
+import img3 from '../assets/images/img3.webp';
+import img4 from '../assets/images/img4.webp';
+import img5 from '../assets/images/img5.webp';
 
 const slides = [
   { 
@@ -48,15 +48,69 @@ const slides = [
 export default function ImageSlider() {
   const [currentIndex, setCurrentIndex] = useState(0);
 
+  // Swipe/Drag state
+  const [touchStart, setTouchStart] = useState(null);
+  const [touchEnd, setTouchEnd] = useState(null);
+  const [isDragging, setIsDragging] = useState(false);
+  const minSwipeDistance = 50;
+
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % slides.length);
     }, 5000);
     return () => clearInterval(timer);
-  }, []);
+  }, [currentIndex]); // restart timer when user changes slide manually
+
+  const handleSwipe = (distance) => {
+    if (distance > minSwipeDistance) {
+      setCurrentIndex((prev) => (prev + 1) % slides.length);
+    } else if (distance < -minSwipeDistance) {
+      setCurrentIndex((prev) => (prev === 0 ? slides.length - 1 : prev - 1));
+    }
+  };
+
+  // Touch handlers
+  const onTouchStart = (e) => {
+    setTouchEnd(null);
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+  const onTouchMove = (e) => setTouchEnd(e.targetTouches[0].clientX);
+  const onTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    handleSwipe(touchStart - touchEnd);
+  };
+
+  // Mouse handlers
+  const onMouseDown = (e) => {
+    setIsDragging(true);
+    setTouchEnd(null);
+    setTouchStart(e.clientX);
+  };
+  const onMouseMove = (e) => {
+    if (!isDragging) return;
+    setTouchEnd(e.clientX);
+  };
+  const onMouseUp = () => {
+    if (!isDragging) return;
+    setIsDragging(false);
+    if (!touchStart || !touchEnd) return;
+    handleSwipe(touchStart - touchEnd);
+  };
+  const onMouseLeave = () => {
+    if (isDragging) onMouseUp();
+  };
 
   return (
-    <div style={styles.sliderContainer}>
+    <div 
+      style={styles.sliderContainer}
+      onTouchStart={onTouchStart}
+      onTouchMove={onTouchMove}
+      onTouchEnd={onTouchEnd}
+      onMouseDown={onMouseDown}
+      onMouseMove={onMouseMove}
+      onMouseUp={onMouseUp}
+      onMouseLeave={onMouseLeave}
+    >
       {slides.map((slide, index) => (
         <div
           key={index}
@@ -111,6 +165,9 @@ const styles = {
     boxShadow: 'var(--shadow-sm)',
     border: '1px solid var(--color-border)',
     backgroundColor: 'var(--color-surface)',
+    cursor: 'grab',
+    userSelect: 'none',
+    WebkitUserSelect: 'none',
   },
   slide: {
     position: 'absolute',

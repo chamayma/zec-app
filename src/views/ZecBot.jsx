@@ -52,12 +52,7 @@ export default function ZecBot() {
   return (
     <div style={styles.container}>
       <div style={styles.header}>
-        <button
-          onClick={() => navigate(-1)}
-          style={{ background: 'none', border: 'none', padding: 0, marginRight: '12px', cursor: 'pointer', display: 'flex' }}
-        >
-          <ArrowLeft size={24} color="var(--color-text)" />
-        </button>
+
         <Bot size={28} color="var(--color-primary)" />
         <div>
           <h2 style={styles.title}>ZEC Bot</h2>

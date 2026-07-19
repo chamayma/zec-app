@@ -1,15 +1,20 @@
-import React from 'react';
-import { Outlet, useNavigate } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { Outlet, useNavigate, useLocation } from 'react-router-dom';
 import BottomNav from './BottomNav';
 import { useTheme } from '../context/ThemeContext';
 import { useLanguage } from '../context/LanguageContext';
 import { Moon, Sun, Languages, Bell, MessageCircleMore } from 'lucide-react';
-import logo from '../assets/images/logo.png';
+import logo from '../assets/images/logo.webp';
 
 export default function Layout() {
   const { isDark, toggleTheme } = useTheme();
   const { lang, toggleLang } = useLanguage();
   const navigate = useNavigate();
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
 
   return (
     <div className="app-container">
@@ -49,7 +54,7 @@ export default function Layout() {
         </header>
       </div>
 
-      <main className="main-content" style={{ paddingTop: '20px' }}>
+      <main className="main-content" style={{ paddingTop: '0px' }}>
         <Outlet />
       </main>
 
@@ -61,11 +66,11 @@ export default function Layout() {
 const styles = {
   headerWrapper: {
     position: 'sticky',
-    top: '16px',
+    top: '0',
     zIndex: 1000,
     display: 'flex',
     justifyContent: 'center',
-    padding: '0 16px',
+    padding: '0',
     pointerEvents: 'none', // Allow clicks to pass through the margin area
   },
   header: {
@@ -74,13 +79,13 @@ const styles = {
     backgroundColor: 'var(--glass-bg)',
     backdropFilter: 'blur(20px)',
     WebkitBackdropFilter: 'blur(20px)',
-    border: '1px solid var(--glass-border)',
-    borderRadius: '32px',
+    borderBottom: '1px solid var(--glass-border)',
+    borderRadius: '0 0 24px 24px',
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
-    padding: '0 12px 0 20px',
-    boxShadow: '0 8px 32px rgba(0,0,0,0.08)',
+    padding: '0 16px',
+    boxShadow: '0 4px 16px rgba(0,0,0,0.05)',
     pointerEvents: 'auto',
   },
   logoArea: {

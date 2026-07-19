@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { useLanguage } from '../context/LanguageContext';
 import { useNavigate } from 'react-router-dom';
 import { Phone, Mail, MapPin, Clock, MessageSquare, Send, CheckCircle2, ChevronRight, ChevronDown, ArrowLeft, Globe } from 'lucide-react';
-import heroImg from '../assets/images/img12.jpeg';
+import heroImg from '../assets/images/img12.webp';
 
 const FacebookIcon = () => (
   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
@@ -57,12 +57,6 @@ export default function Contact() {
       {/* Full Image Header Banner */}
       <div style={{...styles.headerBanner, backgroundImage: `url(${heroImg})`}}>
         <div style={styles.headerOverlay} />
-        <button 
-          onClick={() => navigate(-1)} 
-          style={{position: 'absolute', top: '16px', left: '16px', zIndex: 10, background: 'rgba(0,0,0,0.5)', border: 'none', padding: '8px', borderRadius: '50%', cursor: 'pointer', display: 'flex'}}
-        >
-          <ArrowLeft size={24} color="#fff" />
-        </button>
         <div style={styles.headerContent}>
           <h1 style={styles.headerTitle}>{t('contact')}</h1>
           <p style={styles.headerSubtitle}>{t('contactDesc')}</p>
@@ -259,16 +253,15 @@ const styles = {
     display: 'flex',
     alignItems: 'flex-end',
     padding: '20px',
-    borderBottomLeftRadius: '24px',
-    borderBottomRightRadius: '24px',
-    boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
+    borderRadius: '24px',
+    margin: '8px 16px 20px 16px',
+    overflow: 'hidden',
+    boxShadow: 'var(--shadow-md)',
   },
   headerOverlay: {
     position: 'absolute',
     top: 0, left: 0, right: 0, bottom: 0,
     background: 'linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.8) 100%)',
-    borderBottomLeftRadius: '32px',
-    borderBottomRightRadius: '32px',
     zIndex: 1,
   },
   headerContent: {

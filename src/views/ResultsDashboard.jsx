@@ -4,9 +4,9 @@ import { ArrowLeft, Verified, CheckCircle, Search, Map, ChevronRight, ArrowUpRig
 import { useTheme } from '../context/ThemeContext';
 import { useLanguage } from '../context/LanguageContext';
 
-import raisiImg from '../assets/images/raisi.jpeg';
-import othmanImg from '../assets/images/othman.jpeg';
-import hamadImg from '../assets/images/hamad.png';
+import raisiImg from '../assets/images/raisi.webp';
+import othmanImg from '../assets/images/othman.webp';
+import hamadImg from '../assets/images/hamad.webp';
 export default function ResultsDashboard() {
   const navigate = useNavigate();
   const { isDark } = useTheme();
@@ -228,7 +228,7 @@ export default function ResultsDashboard() {
 
 const styles = {
   container: {
-    padding: '24px 16px',
+    padding: '8px 16px 24px 16px',
     maxWidth: '1200px',
     margin: '0 auto',
     paddingBottom: '100px'

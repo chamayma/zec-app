@@ -84,8 +84,7 @@ export default function TermsScreen() {
 
 const styles = {
   container: {
-    padding: '20px',
-    paddingBottom: '100px',
+    padding: '8px 20px 100px 20px',
   },
   headerArea: {
     marginBottom: '24px',

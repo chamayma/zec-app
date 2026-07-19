@@ -3,8 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
 import { MapPin, UserSearch, Calendar, Newspaper, BookOpen, BarChart3, CalendarDays, ArrowRight, Phone, MessageSquare } from 'lucide-react';
 import ImageSlider from '../components/ImageSlider';
-import newsImg1 from '../assets/images/img6.jpeg';
-import newsImg2 from '../assets/images/img7.jpeg';
+import newsImg1 from '../assets/images/img6.webp';
+import newsImg2 from '../assets/images/img7.webp';
 
 export default function HomeDashboard() {
   const { t } = useLanguage();
@@ -92,8 +92,7 @@ export default function HomeDashboard() {
 
 const styles = {
   container: {
-    padding: '16px',
-    paddingBottom: '40px',
+    padding: '8px 16px 40px 16px',
   },
   section: {
     marginBottom: '24px',

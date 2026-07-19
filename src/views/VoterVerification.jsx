@@ -126,7 +126,7 @@ export default function VoterVerification() {
 
 const styles = {
   container: {
-    padding: '20px',
+    padding: '8px 20px 20px 20px',
   },
   pageTitle: {
     fontSize: '20px',
